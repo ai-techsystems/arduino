@@ -28,6 +28,11 @@
 // Compile: /home/aits/.arduino15/packages/arduino/tools/arm-none-eabi-gcc/7-2017q4/bin/arm-none-eabi-g++ -c asl_model.cpp -O3 -Wall -DARDUINO -std=c++17 -I../src -I ../src/Eigen
 
 #if defined(ARDUINO)
+// Workaround 1 - for Arduino IDE 1.8.12. Ref: https://github.com/esp8266/Arduino/issues/5787
+#undef abs
+// Workaround 2 - 
+// change '-fno-exceptions' to '-fexceptions' in file .arduino15/packages/arduino/hardware/mbed/1.1.4/variants/ARDUINO_NANO33BLE/cxxflags.txt
+
 #include <Arduino_LSM9DS1.h>
 #include "deepC.h"
 #endif
